@@ -30,7 +30,7 @@ const Cart = () => {
                     type="number"
                     className="w-12 outline-none border rounded-md px-2"
                     min={1}
-                    max={5}
+                    max={10}
                   />{" "}
                 </p>
                 <div className="flex w-full justify-around items-center p-2">
