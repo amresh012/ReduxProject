@@ -6,7 +6,7 @@ import { FaShoppingCart } from "react-icons/fa";
 const Navbar = () => {
   const Cartitem = useSelector((state) => state.cart);
   return (
-    <nav className="Navabr flex flex-col lg:flex-row gap-4 items-center justify-around bg-zinc-400  p-3 fixed z-10 lg:relative">
+    <nav className="Navabr flex flex-col lg:flex-row gap-4 items-center justify-around bg-zinc-400  p-3 w-full">
       <span className=" text-white flex items-center gap-2  uppercase">
         RTK Product Store
         <span className="animate-spin duration-1000  bg-black p-2 rounded-full">
