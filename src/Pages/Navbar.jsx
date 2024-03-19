@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { FaShoppingCart } from "react-icons/fa";
 
 const Navbar = () => {
-  const Cartitem = useSelector((state) => state.cart);
+  const {cart} = useSelector((state) => state.cartHolder);
   return (
     <nav className="Navabr flex flex-col lg:flex-row gap-4 items-center justify-around bg-zinc-400  p-3 w-full">
       <span className=" text-white flex items-center gap-2  uppercase">
@@ -17,12 +17,14 @@ const Navbar = () => {
         <Link to="/">Home</Link>
         <Link to="/cart">Cart</Link>
       </ul>
-      <div className=" p-2 flex items-center  justify-center  font-bold text-white uppercase relative  w-24">
-        <FaShoppingCart size={30} />
-        <small className="cartCount absolute top-0 left-3 bg-red-400 rounded-full w-5 text h-5 text-center">
-          {Cartitem.length}
-        </small>
-      </div>
+      <Link to='/cart'>
+        <div className=" p-2 flex items-center  justify-center  font-bold text-white uppercase relative  w-24">
+          <FaShoppingCart size={30} />
+          <small className="cartCount absolute top-0 left-3 bg-red-400 rounded-full w-5 text h-5 text-center">
+            {cart.length || 0}
+          </small>
+        </div>
+      </Link>
     </nav>
   );
 };

@@ -2,9 +2,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { remove } from "../Store/CartSlice";
 const Cart = () => {
   const cartItems = useSelector((state) => {
-    console.log(state.cart);
-    return state.cart;
+    console.log(state.cartHolder);
+    return state.cartHolder;
   });
+  const {total,cart}= cartItems
   const dipatch = useDispatch();
   const handleRemove = (items) => {
     dipatch(remove(items));
@@ -13,12 +14,12 @@ const Cart = () => {
   return (
     <div className=" flex flex-col lg:flex-row justify-center  items-start pt-24 h-auto relative">
       <div className="space-y-8 lg:h-[30vw] overflow-y-scroll">
-        {cartItems.map((item) => (
+        {cart.map((item) => (
           <div
             key={item.id}
             className="border flex items-center justify-around  p-4 hover:shadow-md  "
           >
-            <img src={item.image} alt="" className=" w-24 h-auto  h-24 " />
+            <img src={item.image} alt="" className=" w-24 h-24 " />
             <div className="detail flex  flex-col  w-full p-4">
               <p className="text-xl">{item.title}</p>
               <p className="">Price:{item.price}</p>
@@ -26,7 +27,7 @@ const Cart = () => {
                 Quantity:{" "}
                 <input
                   type="number"
-                  className="w-12 outline-none border rounded-md px-2"
+                  className="w-16 outline-none border rounded-md px-2"
                   min={1}
                   max={10}
                 />{" "}
@@ -47,8 +48,8 @@ const Cart = () => {
       {cartItems && (
         <div className=" bg-gray-500/20 m-4 flex gap-4 flex-col justify-around items-center p-4 w-full lg:w-1/4">
           <div className="flex flex-col lg:flex-row justify-start lg:justify-around lg:items-center w-full">
-            <p className="">Total Item: {cartItems.length}</p>
-            <p className="">Total Amount:0</p>
+            <p className="">Total Item: {cart.length}</p>
+            <p className="">Total Amount:{ total|| 0}</p>
           </div>
           <div className="p-2 border-2 bg-blue-500 w-full text-center rounded-md text-white ">
             <button>Proceed to Checkout</button>

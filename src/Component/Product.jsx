@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Loader from "../Component/Loader";
-import { addToCart } from "../Store/CartSlice";
+import { addToCart , TotalAmount } from "../Store/CartSlice";
 import { useDispatch } from "react-redux";
 import { MdAttachMoney } from "react-icons/md";
 const Product = () => {
@@ -20,6 +20,8 @@ const Product = () => {
 
   const handleAdd = (product) => {
     dispatch(addToCart(product));
+    dispatch(TotalAmount(product));
+    
   };
   return (
     <div className="w-auto h-auto flex items-center justify-around gap-2 flex-wrap ">
