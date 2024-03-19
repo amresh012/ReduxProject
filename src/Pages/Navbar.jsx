@@ -6,12 +6,14 @@ import { FaShoppingCart } from "react-icons/fa";
 const Navbar = () => {
   const { cart } = useSelector((state) => state.cartHolder);
   return (
-    <nav className="Navabr flex flex-col lg:flex-row gap-4 items-center justify-around bg-slate-950  p-3 w-full">
-      <span className=" text-white flex items-center gap-2  uppercase">
-        RTK Product Store
-        <span className="animate-spin duration-1000  bg-black p-2 rounded-full">
-          <SiRedux className="" />
-        </span>
+    <nav className="Navabr  flex flex-col lg:flex-row gap-4 items-center justify-center bg-slate-950  p-3 w-full">
+      <span className=" text-white text-xl  w-full flex  items-center  justify-around gap-2  uppercase">
+        <div className="flex gap-2 items-center">
+          RTK Product Store
+          <span className="animate-spin duration-1000  bg-black p-2 rounded-full">
+            <SiRedux className="" />
+          </span>
+        </div>
       </span>
       <ul className=" flex items-center gap-12 text-white  uppercase">
         <Link to="/">Home</Link>
@@ -26,6 +28,9 @@ const Navbar = () => {
           </small>
         </div>
       </Link>
+      <div className="text-white">
+        <button>Login</button>
+      </div>
     </nav>
   );
 };

@@ -5,12 +5,12 @@ const Home = () => {
   const num = 6;
   return (
     <div className="">
-      <div className="h-80 bg-slate-950 flex flex-col items-center justify-center gap-3 ">
-        <h2 className="text-6xl font-bold text-white  flex items-center justify-center gap-2 w-full">
+      <div className=" bg-slate-950 flex flex-col items-center justify-center gap-3 p-3 ">
+        <h2 className="text-[5vmax] font-bold text-white  flex items-center justify-center gap-2 w-full">
           Welcome To Redux Store
-          <SiRedux className="" />
+          <SiRedux className="hidden lg:block" />
         </h2>
-        <p className="text-white w-1/2 text-center">
+        <p className="text-white w-full lg:w-1/2 text-center">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt
           totam sequi velit enim eius repellat, quas fuga quibusdam sint culpa
           itaque, aspernatur sapiente aperiam reiciendis assumenda consequuntur?

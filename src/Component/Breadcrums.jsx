@@ -1,12 +1,34 @@
-/* eslint-disable react/prop-types */
-import { Link } from "react-router-dom";
-const Breadcrums = ({ breadcrums }) => {
-    return <div className="Breadcrums flex items-center">{breadcrums.map((breadcrums ,index)=>(
-        <span key={index}>
-            {index > 0 && <span className="seperator mx-2"></span>}
-            {breadcrums.link ? (<Link to={breadcrums.link}>{breadcrums.label}</Link>) : (<span>{breadcrums.label}</span>)}
-      </span>
-  ))}</div>;
+import { Link, useLocation } from "react-router-dom";
+
+const Breadcrumbs = () => {
+  const location = useLocation();
+  const pathnames = location.pathname.split("/").filter((x) => x);
+  let breadcrumbPath = "";
+
+  if (pathnames.length === 0) {
+    // If the current route is the home route ('/'), do not render the breadcrumbs
+    return null;
+  }
+
+  return (
+    <div className="breadcrumbs text-blue-400 p-2">
+      <Link to="/">Home</Link>
+      {pathnames.map((name, index) => {
+        breadcrumbPath += `/${name}`;
+        const isLast = index === pathnames.length - 1;
+        // console.log(pathnames, breadcrumbPath);
+
+        return isLast ? (
+          <span key={breadcrumbPath}> / {name}</span>
+        ) : (
+          <span key={breadcrumbPath}>
+            {" "}
+            / <Link to={breadcrumbPath}>{name}</Link>
+          </span>
+        );
+      })}
+    </div>
+  );
 };
 
-export default Breadcrums;
+export default Breadcrumbs;

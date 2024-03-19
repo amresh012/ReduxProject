@@ -24,14 +24,14 @@ const Product = () => {
     dispatch(TotalAmount(product));
   };
   return (
-    <div className="w-auto h-auto flex items-center justify-around gap-2 flex-wrap ">
+    <div className="w-auto  h-auto flex items-center justify-around gap-2 flex-wrap p-2 ">
       {isLoading ? (
         <Loader />
       ) : (
         product.map((prod) => {
           return (
             <div
-              className="w-1/4 rounded-md hover:shadow-md space-y-4  relative"
+              className="lg:w-1/4 w-full rounded-md hover:shadow-md space-y-4  relative"
               key={prod.id}
             >
               <div className="border-2 border-green-400 bg-white p-2">

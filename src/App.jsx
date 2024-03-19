@@ -9,27 +9,22 @@ import { Suspense } from "react";
 import Breadcrums from "./Component/Breadcrums";
 import ProductListing from "./Pages/Product-listing";
 import ProductDetail from "./Pages/ProductDetail";
-
+import Footer from './Component/Footer'
 function App() {
-  const breadcrums = [
-    { label: Home, link: "/" },
-    { label: Cart, link: "/cart" },
-  ];
   return (
     <>
       <Suspense fallback={<div>Loading...</div>}>
         <Provider store={store}>
           <BrowserRouter>
             <Navbar />
-            <div className="bg-red-400">
-              <Breadcrums breadcrums={breadcrums} />
-            </div>
+            <Breadcrums />
             <Routes>
               <Route path="/" element={<Home />}></Route>
               <Route path="/product" element={<ProductListing />} />
               <Route path="/product/:id" element={<ProductDetail />} />
               <Route path="/cart" element={<Cart />}></Route>
             </Routes>
+            <Footer/>
           </BrowserRouter>
         </Provider>
       </Suspense>
