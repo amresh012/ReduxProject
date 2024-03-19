@@ -64,12 +64,20 @@ const Product = () => {
                     </div>
                   </div>
                 </Link>
-                <button
-                  className="w-full bg-blue-500 text-white font-medium p-2 active:scale-95 duration-100 hover:bg-slate-500"
-                  onClick={() => handleAdd(prod)}
-                >
-                  Add to cart
-                </button>
+                <div className="space-y-2">
+                  <button
+                    className="w-full bg-blue-500 text-white font-medium p-2 active:scale-95 duration-100 hover:bg-slate-500"
+                    onClick={() => handleAdd(prod)}
+                  >
+                    Add to cart
+                  </button>
+                  <button
+                    className="w-full bg-blue-600  text-white font-medium p-2 active:scale-95 duration-100 hover:bg-slate-500"
+                    onClick={() => handleAdd(prod)}
+                  >
+                    Buy Now
+                  </button>
+                </div>
               </div>
             </div>
           );
