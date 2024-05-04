@@ -10,6 +10,7 @@ import Breadcrums from "./Component/Breadcrums";
 import ProductListing from "./Pages/Product-listing";
 import ProductDetail from "./Pages/ProductDetail";
 import Footer from './Component/Footer'
+import Login from './Pages/Login'
 function App() {
   return (
     <>
@@ -23,6 +24,7 @@ function App() {
               <Route path="/product" element={<ProductListing />} />
               <Route path="/product/:id" element={<ProductDetail />} />
               <Route path="/cart" element={<Cart />}></Route>
+              <Route path='/Login' element ={<Login/>}/>
             </Routes>
             <Footer/>
           </BrowserRouter>

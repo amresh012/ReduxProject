@@ -26,27 +26,30 @@ const ProductDetail = () => {
     dispatch(addToCart(product));
   };
   return (
-    <div>
-      <h1 className="text-center text-3xl p-4">Details for product</h1>
+    <div className="p-4 flex flex-col">
       {isLoading ? (
         <Loader />
       ) : (
-        <div className="flex items-center justify-around w-full">
+        <div className="flex h-screen items-center justify-around w-full">
           <div className="img">
-            <img src={product.image} alt="" className="w-80" />
+            <img src={product.image} alt="" className="w-72" />
           </div>
-          <div className="detail w-1/2 flex flex-col gap-4">
+          <div className="detail w-full lg:w-1/2 flex flex-col gap-4">
             <h2 className="text-3xl font-bold">{product.title}</h2>
             <p className="text-xl">{product.description}</p>
             <div className="flex gap-4 items-center  font-medium">
               Price:
-              <p className="font-thin italic">{product.price}</p>
+              <p className="font-thin italic">${product.price}</p>
               <div className="flex items-center justify-center gap-2">
                 Available in{" "}
                 <p className="font-thin bg-green-400 p-2 text-white">
                   {product.category}
                 </p>
               </div>
+              <p className="">Rating:{product.rating.rate}</p>
+              <p className="hidden lg:block">
+                Inventory Count:{product.rating.count}{" "}
+              </p>
             </div>
 
             <button

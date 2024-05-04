@@ -11,7 +11,7 @@ const Breadcrumbs = () => {
   }
 
   return (
-    <div className="breadcrumbs text-blue-400 p-2">
+    <div className="breadcrumbs text-white p-2 bg-slate-950">
       <Link to="/">Home</Link>
       {pathnames.map((name, index) => {
         breadcrumbPath += `/${name}`;
@@ -19,11 +19,11 @@ const Breadcrumbs = () => {
         // console.log(pathnames, breadcrumbPath);
 
         return isLast ? (
-          <span key={breadcrumbPath}> / {name}</span>
+          <span key={breadcrumbPath}> &gt; {name}</span>
         ) : (
           <span key={breadcrumbPath}>
             {" "}
-            / <Link to={breadcrumbPath}>{name}</Link>
+            &gt; <Link to={breadcrumbPath}>{name}</Link>
           </span>
         );
       })}

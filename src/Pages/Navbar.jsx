@@ -28,9 +28,11 @@ const Navbar = () => {
           </small>
         </div>
       </Link>
-      <div className="text-white px-12">
-        <button>Login</button>
-      </div>
+      <Link to='/Login'>
+        <div className="text-white px-12">
+          <button>Login</button>
+        </div>
+      </Link>
     </nav>
   );
 };
