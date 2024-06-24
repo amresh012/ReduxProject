@@ -93,4 +93,3 @@ const Product = () => {
 };
 
 export default Product;
-//   https://fakestoreapi.com/products//

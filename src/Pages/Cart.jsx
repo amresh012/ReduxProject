@@ -7,6 +7,7 @@ const Cart = () => {
   });
   const { total, cart } = cartItems;
   const dipatch = useDispatch();
+  
   const handleRemove = (items) => {
     dipatch(remove(items));
   };
