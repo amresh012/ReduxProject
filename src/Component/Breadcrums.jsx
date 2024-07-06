@@ -11,7 +11,7 @@ const Breadcrumbs = () => {
   }
 
   return (
-    <div className="breadcrumbs text-white p-2 bg-slate-950">
+    <div className="breadcrumbs text-white p-2 bg-slate-950 w-fit rounded-br-md">
       <Link to="/">Home</Link>
       {pathnames.map((name, index) => {
         breadcrumbPath += `/${name}`;

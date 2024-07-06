@@ -25,6 +25,8 @@ const cartSlice = createSlice({
             }
             state.total = sum.toFixed(2);//round up to two decimal places
         }
+
+        
         
     },
 })

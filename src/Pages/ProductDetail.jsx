@@ -26,18 +26,18 @@ const ProductDetail = () => {
     dispatch(addToCart(product));
   };
   return (
-    <div className="p-4 flex flex-col">
+    <div className="p-4 flex flex-col h-full">
       {isLoading ? (
         <Loader />
       ) : (
-        <div className="flex h-screen items-center justify-around w-full">
+        <div className="flex flex-col lg:flex-row h-screen items-center justify-around w-full">
           <div className="img">
             <img src={product.image} alt="" className="w-72" />
           </div>
-          <div className="detail w-full lg:w-1/2 flex flex-col gap-4">
+          <div className="detail  w-full lg:w-1/2 flex flex-col gap-4">
             <h2 className="text-3xl font-bold">{product.title}</h2>
-            <p className="text-xl">{product.description}</p>
-            <div className="flex gap-4 items-center  font-medium">
+            <p className="lg:text-xl text-sm text-center ">{product.description}</p>
+            <div className="flex items-center gap-2 flex-wrap  justify-around">
               Price:
               <p className="font-thin italic">${product.price}</p>
               <div className="flex items-center justify-center gap-2">
@@ -53,7 +53,7 @@ const ProductDetail = () => {
             </div>
 
             <button
-              className="w-fit bg-blue-500 text-white font-medium p-2 active:scale-95 duration-100 hover:bg-slate-500"
+              className="w-fit bg-blue-500 text-white font-medium p-2 active:scale-95 duration-100 hover:bg-slate-500 "
               onClick={() => handleAdd(product)}
             >
               Add to cart

@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { remove } from "../Store/CartSlice";
 import { FaTrash, FaCheck } from "react-icons/fa";
+import PlaceHolder from "../Component/PlaceHolder";
 const Cart = () => {
   const cartItems = useSelector((state) => {
     return state.cartHolder;
@@ -14,17 +15,18 @@ const Cart = () => {
 
   return (
     <div className=" flex flex-col lg:flex-row justify-center w-[80vw]  items-start pt-24 h-auto relative">
-      <div className="space-y-8 lg:h-[40vw] overflow-y-scroll">
-        {cart.map((item) => (
+      <div className="space-y-8 lg:h-[40vw] overflow-y-scroll w-full">
+        {cart.length == 0 ?<PlaceHolder text=" your Cart is empty"/> : cart.map((item) => (
           <div
             key={item.id}
-            className="border-b flex items-center justify-around p-4  hover:shadow-md  "
+            className="border-b flex items-center justify-around p-4  hover:shadow-md m-2  "
           >
             <div className="">
               <img
                 src={item.image}
                 alt="product-image"
-                className=" w-28 h-28 "
+                className=" w-32 h-32  hover:scale-105 duration-200"
+                draggable={false}
               />
             </div>
             <div className="detail flex  flex-col  w-full p-4">
@@ -32,12 +34,7 @@ const Cart = () => {
               <p className="">Price:{item.price}</p>
               <p className="m-2">
                 Quantity:{" "}
-                <input
-                  type="number"
-                  className="w-16 outline-none border rounded-md px-2"
-                  min={1}
-                  max={10}
-                />{" "}
+                <span className="text-xl">{item.quantity}</span>
               </p>
               <div className="flex w-full justify-around items-center  ">
                 <button
@@ -66,7 +63,7 @@ const Cart = () => {
         ))}
       </div>
       {cartItems && (
-        <div className=" bg-gray-500/20 m-4 flex gap-4 flex-col justify-around items-center p-4 w-full lg:w-1/4">
+        <div className=" bg-gray-500/20 m-4 flex gap-4 flex-col justify-around items-center p-4 w-full lg:w-1/2">
           <div className="flex flex-col lg:flex-row justify-start lg:justify-around lg:items-center w-full">
             <p className="">
               Total Item:{" "}
@@ -77,12 +74,12 @@ const Cart = () => {
             <p className="">
               Total Amount:{" "}
               <span className="text-red-500 italic font-bold">
-                {total || 0}
+                ${total || 0}
               </span>
             </p>
           </div>
           <div className="p-2 border-2 bg-blue-500 w-full text-center rounded-md text-white ">
-            <button>Proceed to Checkout</button>
+            <button className={cart.length ==0 ?"cursor-not-allowed":""}>Proceed to Checkout</button>
           </div>
         </div>
       )}
